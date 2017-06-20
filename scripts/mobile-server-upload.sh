@@ -1,0 +1,1 @@
+cd $PWD;pwd;ant compile && echo "Stopping mobile server" && ssh root@$1 'rcnovell-iprint-mobile stop' &&  ssh root@$1 'rm -rf /usr/share/tomcat6/webapps/*' && scp ./webapplication/target/iprint.war root@$1:/srv/tomcat6/webapps/iprint.war && echo Copied war file and starting mobile server && ssh root@$1 'rcnovell-iprint-mobile start' && echo Mobile server started!
